@@ -9,5 +9,12 @@ class SendMoneyApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -25,8 +25,15 @@ public class Account implements Serializable{
             this.balance = balance;
             this.appUser = appUser;
       }
+      
+      
 
-      public int getId() {
+      public Account(String numAccount) {
+		super();
+		this.numAccount = numAccount;
+	}
+
+	public int getId() {
             return id;
       }
 

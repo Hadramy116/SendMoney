@@ -25,6 +25,15 @@ public class AppUser implements Serializable{
 
 	public AppUser() {
 	}
+	
+	
+
+	public AppUser(String userName) {
+		super();
+		this.userName = userName;
+	}
+
+
 
 	public AppUser(String userName, String password, Collection<AppRole> appRoles, Collection<Account> accounts) {
 		this.userName = userName;

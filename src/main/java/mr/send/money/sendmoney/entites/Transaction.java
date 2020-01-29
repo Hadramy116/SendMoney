@@ -38,6 +38,14 @@ public class Transaction implements Serializable{
 		this.txType = txType;
 	}
 
+	
+	
+	
+	public Transaction(@NotNull Account sender) {
+		super();
+		this.sender = sender;
+	}
+
 	public int getId() {
 		return id;
 	}
