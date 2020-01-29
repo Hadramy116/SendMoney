@@ -4,6 +4,9 @@ import mr.send.money.sendmoney.entites.AppUser;
 import mr.send.money.sendmoney.entites.RoleName;
 import mr.send.money.sendmoney.entites.TxType;
 import mr.send.money.sendmoney.service.imp.UserServiceImp;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,6 +27,8 @@ public class UserController {
     @Autowired
     private PasswordEncoder encoder;
     private UserServiceImp userServiceImp;
+    
+    Logger LOGGER =LoggerFactory.getLogger(UserController.class);
 
     public UserController(UserServiceImp userServiceImp, PasswordEncoder encoder) {
         this.userServiceImp = userServiceImp;
@@ -37,6 +42,8 @@ public class UserController {
 
     @PostMapping("/users")
     public AppUser createUser(@RequestBody AppUser appUser) {
+    	LOGGER.info("Entree dans le methode createUser avec le parametre appUser:{}",appUser);
+
         return userServiceImp.save(appUser);
     }
 
@@ -44,6 +51,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody AppUser appUser) {
+    	LOGGER.info("Entree dans le methode registerUser avec le parametre appUser:{}",appUser);
         if (userServiceImp.existByUsername(appUser.getUserName())) {
             return ResponseEntity
                     .badRequest()
